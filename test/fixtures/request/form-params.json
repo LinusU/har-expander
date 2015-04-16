@@ -1,0 +1,29 @@
+{
+  "method": "POST",
+  "url": "http://mockbin.com/har",
+  "httpVersion": "HTTP/1.1",
+  "queryString": [],
+  "headers": [
+    {
+      "name": "content-type",
+      "value": "application/x-www-form-urlencoded"
+    }
+  ],
+  "headersSize": 0,
+  "cookies": [],
+  "cookies": [],
+  "postData": {
+    "mimeType": "application/x-www-form-urlencoded",
+    "params": [
+      {
+        "name": "foo",
+        "value": "bar"
+      },
+      {
+        "name": "hello",
+        "value": "world"
+      }
+    ]
+  },
+  "bodySize": 0
+}

@@ -1,0 +1,13 @@
+{
+  "method": "POST",
+  "url": "http://mockbin.com/har",
+  "httpVersion": "HTTP/1.1",
+  "queryString": [],
+  "headers": [],
+  "headersSize": 0,
+  "cookies": [],
+  "postData": {
+    "mimeType": "application/x-json"
+  },
+  "bodySize": 0
+}

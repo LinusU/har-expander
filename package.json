@@ -1,0 +1,48 @@
+{
+  "version": "0.0.1",
+  "name": "har-expander",
+  "description": "Expands HAR objects with helper properties",
+  "author": "Ahmad Nassri <ahmad@ahmadnassri.com> (https://www.ahmadnassri.com/)",
+  "homepage": "https://github.com/ahmadnassri/har-expander",
+  "repository": "ahmadnassri/har-expander",
+  "license": "MIT",
+  "main": "./src/index.js",
+  "bin": "./bin/har-expander",
+  "keywords": [
+    "expand",
+    "expander",
+    "har",
+    "parse"
+  ],
+  "engines": {
+    "node": ">=0.10"
+  },
+  "files": [
+    "bin",
+    "src"
+  ],
+  "bugs": {
+    "url": "https://github.com/ahmadnassri/har-expander/issues"
+  },
+  "scripts": {
+    "test": "standard && mocha --reporter spec",
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha",
+    "codeclimate": "codeclimate < coverage/lcov.info"
+  },
+  "devDependencies": {
+    "codeclimate-test-reporter": "*",
+    "istanbul": "*",
+    "mocha": "*",
+    "should": "*",
+    "standard": "*"
+  },
+  "dependencies": {
+    "bluebird": "^2.9.24",
+    "chalk": "^1.0.0",
+    "commander": "^2.7.1",
+    "event-stream": "^3.3.0",
+    "form-data": "^0.2.0",
+    "har-validator": "^1.6.1",
+    "require-directory": "^2.1.0"
+  }
+}

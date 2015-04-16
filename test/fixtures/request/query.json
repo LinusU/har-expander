@@ -1,0 +1,24 @@
+{
+  "method": "GET",
+  "url": "http://mockbin.com/har?key=value",
+  "httpVersion": "HTTP/1.1",
+  "queryString": [
+    {
+      "name": "foo",
+      "value": "bar"
+    },
+    {
+      "name": "foo",
+      "value": "baz"
+    },
+    {
+      "name": "baz",
+      "value": "abc"
+    }
+  ],
+  "headers": [],
+  "headersSize": 0,
+  "cookies": [],
+  "cookies": [],
+  "bodySize": 0
+}
