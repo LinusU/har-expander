@@ -3,7 +3,7 @@
 'use strict'
 
 var expand = require('..')
-var fixture = require('./fixtures/har')
+var fixture = require('./fixtures/full')
 
 var should = require('should')
 

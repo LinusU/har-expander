@@ -1,3 +1,4 @@
+✓ [har.json] is valid:
 {
   "log": {
     "version": "1.2",
@@ -53,7 +54,39 @@
             }
           ],
           "headersSize": 482,
-          "bodySize": 0
+          "bodySize": 0,
+          "queryObj": {},
+          "headersObj": {
+            "connection": "keep-alive",
+            "host": "mockbin.com",
+            "accept-encoding": "gzip, deflate, sdch",
+            "dnt": "1"
+          },
+          "cookiesObj": {
+            "foo": "bar"
+          },
+          "allHeaders": {
+            "cookie": "foo=bar",
+            "dnt": "1",
+            "accept-encoding": "gzip, deflate, sdch",
+            "host": "mockbin.com",
+            "connection": "keep-alive"
+          },
+          "uriObj": {
+            "protocol": "http:",
+            "slashes": true,
+            "auth": null,
+            "host": "mockbin.com",
+            "port": null,
+            "hostname": "mockbin.com",
+            "hash": null,
+            "search": "",
+            "query": {},
+            "pathname": "/",
+            "path": "/",
+            "href": "http://mockbin.com/"
+          },
+          "fullUrl": "http://mockbin.com/"
         },
         "response": {
           "status": 200,

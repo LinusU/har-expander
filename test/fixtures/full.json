@@ -1,0 +1,59 @@
+{
+  "log": {
+    "version": "1.2",
+    "creator": {
+      "name": "har-expander",
+      "version": "1.0"
+    },
+    "entries": [
+      {
+        "startedDateTime": "2015-02-10T07:33:17.146Z",
+        "time": 110,
+        "request": {
+          "method": "GET",
+          "url": "http://mockbin.com/har?key=value",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            { "name": "Host", "value": "mockbin.com" },
+            { "name": "Connection", "value": "keep-alive" }
+          ],
+          "queryString": [
+            { "name": "foo", "value": "bar"}
+          ],
+          "cookies": [
+            { "name": "foo", "value": "bar" }
+          ],
+          "headersSize": 0,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            { "name": "Date", "value": "Tue, 10 Feb 2015 07:33:16 GMT" },
+            { "name": "X-Powered-By", "value": "mockbin.com" },
+            { "name": "Content-Type", "value": "text/html; charset=utf-8" }
+          ],
+          "cookies": [
+            { "name": "foo", "value": "bar" }
+          ],
+          "content": {
+            "size": 0,
+            "mimeType": "application/json",
+            "text": "{\"foo\": \"bar\"}"
+          },
+          "redirectURL": "",
+          "headersSize": 0,
+          "bodySize": 0
+        },
+        "cache": {},
+        "timings": {
+          "send": -1,
+          "wait": -1,
+          "receive": -1
+        }
+      }
+    ]
+  }
+}

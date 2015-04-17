@@ -1,0 +1,20 @@
+{
+  "method": "POST",
+  "url": "http://mockbin.com/har",
+  "httpVersion": "HTTP/1.1",
+  "queryString": [],
+  "headers": [
+    {
+      "name": "content-type",
+      "value": "multipart/form-data; boundary=---011000010111000001101001"
+    }
+  ],
+  "headersSize": 0,
+  "cookies": [],
+  "cookies": [],
+  "postData": {
+    "mimeType": "multipart/form-data",
+    "text": "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"foo\"\r\n\r\nbar\r\n-----011000010111000001101001--"
+  },
+  "bodySize": 0
+}

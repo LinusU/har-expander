@@ -1,0 +1,24 @@
+{
+  "status": 200,
+  "statusText": "OK",
+  "httpVersion": "HTTP/1.1",
+  "redirectURL": "",
+  "headers": [
+    {
+      "name": "accept",
+      "value": "application/json"
+    },
+    {
+      "name": "x-foo",
+      "value": "Bar"
+    }
+  ],
+  "headersSize": 0,
+  "cookies": [],
+  "cookies": [],
+  "content": {
+    "size": 0,
+    "mimeType": "application/octet-stream"
+  },
+  "bodySize": 0
+}

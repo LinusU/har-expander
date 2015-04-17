@@ -4,6 +4,7 @@ var es = require('event-stream')
 var MultiPartForm = require('form-data')
 var querystring = require('querystring')
 var reducer = require('./reducer')
+var parser = require('./multipart-parser')
 var url = require('url')
 var util = require('util')
 var validate = require('har-validator')
@@ -12,44 +13,70 @@ module.exports = function (input) {
   // don't mess with original object
   var req = JSON.parse(JSON.stringify(input))
 
-  // sanity
+  // sanity check
   validate.request(req, function (err, valid) {
     if (!valid) {
       throw err
     }
   })
 
-  // construct utility properties
+  // initialize properties
   req.queryObj = {}
   req.headersObj = {}
   req.cookiesObj = {}
-  req.allHeaders = {}
 
   if (req.postData) {
     req.postData.jsonObj = false
     req.postData.paramsObj = false
   }
 
-  // construct query objects
+  // construct query object
   if (req.queryString && req.queryString.length) {
     req.queryObj = req.queryString.reduce(reducer, {})
   }
 
-  // construct headers objects
+  // de-construct the uri
+  req.uriObj = url.parse(req.url, true, true)
+
+  // merge all possible queryString values
+  req.queryObj = util._extend(req.queryObj, req.uriObj.query)
+
+  // reset uriObj values for a clean url
+  req.uriObj.query = null
+  req.uriObj.search = null
+  req.uriObj.path = req.uriObj.pathname
+
+  // keep the base url clean of queryString
+  req.url = url.format(req.uriObj)
+
+  // update the uri object
+  req.uriObj.query = req.queryObj
+  req.uriObj.search = '?' + querystring.stringify(req.queryObj)
+
+  if (req.uriObj.search) {
+    req.uriObj.path = req.uriObj.pathname + req.uriObj.search
+  }
+
+  // construct a full url
+  req.fullUrl = url.format(req.uriObj)
+
+  // update uriObj
+  req.uriObj.href = req.fullUrl
+
+  // construct headers object
   if (req.headers && req.headers.length) {
+    req.headersObj = req.headers.reduce(reducer, {})
+
     // loweCase header keys
-    req.headersObj = req.headers.reduceRight(function (headers, header) {
-      headers[header.name.toLowerCase()] = header.value
+    req.headersObj = Object.keys(req.headersObj).reduceRight(function (headers, name) {
+      headers[name.toLowerCase()] = req.headersObj[name]
       return headers
     }, {})
   }
 
-  // construct headers objects
+  // construct cookies object
   if (req.cookies && req.cookies.length) {
-    req.cookiesObj = req.cookies.reduceRight(function (cookies, cookie) {
-      cookies[cookie.name] = cookie.value
-      return cookies
-    }, {})
+    req.cookiesObj = req.cookies.reduce(reducer, {})
   }
 
   // construct Cookie header
@@ -58,7 +85,7 @@ module.exports = function (input) {
   })
 
   if (cookies.length) {
-    req.allHeaders.cookie = cookies.join('; ')
+    req.headersObj.cookie = cookies.join('; ')
   }
 
   if (req.postData) {
@@ -68,13 +95,21 @@ module.exports = function (input) {
       case 'multipart/form-data':
       case 'multipart/alternative':
         // reset values
-        req.postData.text = ''
         req.postData.mimeType = 'multipart/form-data'
 
-        if (req.postData.params) {
+        if (req.postData.text) {
+          // got the full text, lets parse it
+
+          parser(req)
+        } else if (req.postData.params) {
+          // lets construct the full text from existing params
+
+          // initialize
+          req.postData.text = ''
+
           var form = new MultiPartForm()
 
-          // easter egg
+          // magic sauce
           form._boundary = '---011000010111000001101001'
 
           req.postData.params.forEach(function (param) {
@@ -126,34 +161,6 @@ module.exports = function (input) {
         break
     }
   }
-
-  // create allHeaders object
-  req.allHeaders = util._extend(req.allHeaders, req.headersObj)
-
-  // de-construct the uri
-  req.uriObj = url.parse(req.url, true, true)
-
-  // merge all possible queryString values
-  req.queryObj = util._extend(req.queryObj, req.uriObj.query)
-
-  // reset uriObj values for a clean url
-  req.uriObj.query = null
-  req.uriObj.search = null
-  req.uriObj.path = req.uriObj.pathname
-
-  // keep the base url clean of queryString
-  req.url = url.format(req.uriObj)
-
-  // update the uri object
-  req.uriObj.query = req.queryObj
-  req.uriObj.search = querystring.stringify(req.queryObj)
-
-  if (req.uriObj.search) {
-    req.uriObj.path = req.uriObj.pathname + '?' + req.uriObj.search
-  }
-
-  // construct a full url
-  req.fullUrl = url.format(req.uriObj)
 
   return req
 }

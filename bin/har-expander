@@ -21,8 +21,11 @@ if (!cmd.args.length) {
   cmd.help()
 }
 
-if (!cmd.schema) {
-  cmd.schema = 'har'
+// default function to call
+var func = expand
+
+if (cmd.schema) {
+  func = expand[cmd.schema]
 }
 
 cmd.args.map(function (fileName) {
@@ -31,7 +34,7 @@ cmd.args.map(function (fileName) {
   fs.readFileAsync(fileName)
     .then(JSON.parse)
     .then(function (data) {
-      return expand[cmd.schema].call(null, data)
+      return func.call(null, data)
     })
     .then(function (output) {
       console.log('%s [%s] is valid:\n%s', chalk.green('✓'), file, JSON.stringify(output, null, 2))

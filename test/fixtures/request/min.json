@@ -1,13 +1,11 @@
 {
   "method": "POST",
-  "url": "http://mockbin.com/har",
+  "url": "http://mockbin.com/",
   "httpVersion": "HTTP/1.1",
   "queryString": [],
   "headers": [],
   "headersSize": 0,
   "cookies": [],
-  "postData": {
-    "mimeType": "multipart/alternative"
-  },
+  "postData": {},
   "bodySize": 0
 }

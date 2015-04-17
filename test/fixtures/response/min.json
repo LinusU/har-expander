@@ -1,0 +1,14 @@
+{
+  "status": 200,
+  "statusText": "OK",
+  "httpVersion": "HTTP/1.1",
+  "redirectURL": "",
+  "headers": [],
+  "headersSize": 0,
+  "cookies": [],
+  "content": {
+    "size": 0,
+    "mimeType": "application/octet-stream"
+  },
+  "bodySize": 0
+}

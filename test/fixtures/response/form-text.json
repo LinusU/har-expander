@@ -1,0 +1,21 @@
+{
+  "status": 200,
+  "statusText": "OK",
+  "httpVersion": "HTTP/1.1",
+  "redirectURL": "",
+  "headers": [
+    {
+      "name": "content-type",
+      "value": "application/x-www-form-urlencoded"
+    }
+  ],
+  "headersSize": 0,
+  "cookies": [],
+  "cookies": [],
+  "content": {
+    "size": 0,
+    "mimeType": "application/x-www-form-urlencoded",
+    "text": "foo=bar&bar=baz"
+  },
+  "bodySize": 0
+}
