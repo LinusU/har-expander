@@ -101,7 +101,7 @@ module.exports = function (input) {
 
           // always overwrite
           req.postData.text = querystring.stringify(req.postData.paramsObj)
-        } else if (req.postData.text.length > 0) {
+        } else if (req.postData.text && req.postData.text.length > 0) {
           req.postData.paramsObj = querystring.parse(req.postData.text)
         } else {
           req.postData.text = ''
@@ -130,7 +130,7 @@ module.exports = function (input) {
   // create allHeaders object
   req.allHeaders = util._extend(req.allHeaders, req.headersObj)
 
-  // deconstruct the uri
+  // de-construct the uri
   req.uriObj = url.parse(req.url, true, true)
 
   // merge all possible queryString values
