@@ -2,6 +2,14 @@
 
 Expands HTTP Archive ([HAR](http://www.softwareishard.com/blog/har-12-spec/)) objects with helpful utility properties and a sprinkle of magic.
 
+[![Build Status][travis-image]][travis-url]
+[![Downloads][npm-downloads]][npm-url]
+[![Code Climate][codeclimate-quality]][codeclimate-url]
+[![Coverage Status][codeclimate-coverage]][codeclimate-url]
+[![Dependencies][david-image]][david-url]
+
+## Utility Properties
+
 ###### Request
 
 - creates a new property `queryObj` as a standard object from `queryString` array
@@ -13,7 +21,7 @@ Expands HTTP Archive ([HAR](http://www.softwareishard.com/blog/har-12-spec/)) ob
 - restores `url` to queryString-less state after parsing
 - creates a new property `postData.jsonObj` from parsing `req.postData.text` with appropriate mimeType
 - creates a new property `postData.paramsObj` from `postData.params` array
-- creates a new property `postData.paramsObj` from parsing `req.postData.text` with appropriate mimeType *(`multipart/*`, `application/x-www-form-urlencoded`)*
+- creates a new property `postData.paramsObj` from parsing `req.postData.text` with appropriate mimeType *(`multipart/form-data`, `application/x-www-form-urlencoded`)*
 
 ###### Response
 
@@ -22,20 +30,13 @@ Expands HTTP Archive ([HAR](http://www.softwareishard.com/blog/har-12-spec/)) ob
 - creates a new property `redirectURLObj` by parsing `redirectURL`
 - creates a new property `content.jsonObj` from parsing `req.postData.text` with appropriate mimeType
 
-
-[![Build Status][travis-image]][travis-url]
-[![Downloads][npm-downloads]][npm-url]
-[![Code Climate][codeclimate-quality]][codeclimate-url]
-[![Coverage Status][codeclimate-coverage]][codeclimate-url]
-[![Dependencies][david-image]][david-url]
-
 ## Install
 
 ```sh
 npm install --save har-expander
 ```
 
-##### Expanded Request Object
+## Example
 
 ###### Before
 
