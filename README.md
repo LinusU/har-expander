@@ -30,12 +30,6 @@ Expands HTTP Archive ([HAR](http://www.softwareishard.com/blog/har-12-spec/)) ob
 - creates a new property `redirectURLObj` by parsing `redirectURL`
 - creates a new property `content.jsonObj` from parsing `req.postData.text` with appropriate mimeType
 
-## Install
-
-```sh
-npm install --save har-expander
-```
-
 ## Example
 
 ###### Before
@@ -223,6 +217,12 @@ npm install --save har-expander
 }
 ```
 
+## Install
+
+```sh
+npm install --save har-expander
+```
+
 ## Usage
 
 ```
@@ -253,6 +253,15 @@ var expandedReq = expander.request(HAR.log.entries[0].request)
 var expandedRes = expander.request(HAR.log.entries[0].response)
 ```
 
+## Support
+
+Donations are welcome to help support the continuous development of this project.
+
+[![Gratipay][gratipay-image]][gratipay-url]
+[![PayPal][paypal-image]][paypal-url]
+[![Flattr][flattr-image]][flattr-url]
+[![Bitcoin][bitcoin-image]][bitcoin-url]
+
 ## License
 
 [MIT](LICENSE) &copy; [Ahmad Nassri](https://www.ahmadnassri.com)
@@ -273,3 +282,15 @@ var expandedRes = expander.request(HAR.log.entries[0].response)
 
 [david-url]: https://david-dm.org/ahmadnassri/har-expander
 [david-image]: https://img.shields.io/david/ahmadnassri/har-expander.svg?style=flat-square
+
+[gratipay-url]: https://www.gratipay.com/ahmadnassri/
+[gratipay-image]: https://img.shields.io/gratipay/ahmadnassri.svg?style=flat-square
+
+[paypal-url]: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UJ2B2BTK9VLRS&on0=project&os0=har-expander
+[paypal-image]: http://img.shields.io/badge/payPal-donate-green.svg?style=flat-square
+
+[flattr-url]: https://flattr.com/submit/auto?user_id=codeinchaos&url=https://github.com/ahmadnassri/har-expander&title=har-expander&language=&tags=github&category=software
+[flattr-image]: http://img.shields.io/badge/flattr-donate-green.svg?style=flat-square
+
+[bitcoin-image]: http://img.shields.io/badge/bitcoin-1Nb46sZRVG3or7pNaDjthcGJpWhvoPpCxy-green.svg?style=flat-square
+[bitcoin-url]: https://www.coinbase.com/checkouts/7579a122f0cb2e7e4bbc2de9d780caa5
