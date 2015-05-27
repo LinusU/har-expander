@@ -3,6 +3,7 @@
 'use strict'
 
 var expand = require('..')
+var clone = require('stringify-clone')
 var fixtures = require('./fixtures/response')
 
 var should = require('should')
@@ -81,7 +82,7 @@ describe('Response', function () {
 
   describe('content', function () {
     beforeEach(function (done) {
-      fixtures.blank = JSON.parse(JSON.stringify(fixtures.min))
+      fixtures.blank = clone(fixtures.min)
       done()
     })
 

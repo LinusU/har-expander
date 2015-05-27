@@ -6,8 +6,8 @@
   "homepage": "https://github.com/ahmadnassri/har-expander",
   "repository": "ahmadnassri/har-expander",
   "license": "MIT",
-  "main": "./src/index.js",
-  "bin": "./bin/har-expander",
+  "main": "lib/index.js",
+  "bin": "bin/har-expander",
   "keywords": [
     "expand",
     "expander",
@@ -19,32 +19,34 @@
   },
   "files": [
     "bin",
-    "src"
+    "lib"
   ],
   "bugs": {
     "url": "https://github.com/ahmadnassri/har-expander/issues"
   },
   "scripts": {
-    "test": "standard && mocha --reporter spec",
+    "test": "standard && echint && mocha --reporter spec",
     "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha",
     "codeclimate": "codeclimate < coverage/lcov.info"
   },
   "devDependencies": {
-    "codeclimate-test-reporter": "*",
-    "istanbul": "*",
-    "mocha": "*",
-    "should": "*",
-    "standard": "*"
+    "codeclimate-test-reporter": "0.0.4",
+    "echint": "^1.1.1",
+    "istanbul": "^0.3.14",
+    "mocha": "^2.2.5",
+    "should": "^6.0.3",
+    "standard": "^3.11.1"
   },
   "dependencies": {
-    "bluebird": "^2.9.24",
+    "bluebird": "^2.9.26",
     "chalk": "^1.0.0",
-    "commander": "^2.7.1",
+    "commander": "^2.8.1",
     "dicer": "^0.2.4",
-    "event-stream": "^3.3.0",
+    "event-stream": "^3.3.1",
     "form-data": "^0.2.0",
-    "har-validator": "^1.6.1",
+    "har-validator": "^1.7.1",
     "media-typer": "^0.3.0",
-    "require-directory": "^2.1.0"
+    "require-directory": "^2.1.0",
+    "stringify-clone": "^1.1.0"
   }
 }
