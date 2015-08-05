@@ -11,7 +11,7 @@ describe('HAR', function () {
   it('should fail validation', function (done) {
     var result;
 
-    /*eslint-disable no-wrap-func */
+    /*eslint-disable no-extra-parens */
     (function () {
       result = expand({yolo: 'foo'})
     }).should.throw(Error)
